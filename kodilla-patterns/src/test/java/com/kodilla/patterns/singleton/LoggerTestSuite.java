@@ -8,7 +8,8 @@ import org.junit.Test;
 public class LoggerTestSuite {
     @BeforeClass
     public static void log() {
-        Logger.getInstance().Log("Test");
+        Logger.getInstance().Log("Log");
+        Logger.getInstance().Log("SecondLog");
     }
 
     @Test
@@ -17,6 +18,6 @@ public class LoggerTestSuite {
         //When
         String output = Logger.getInstance().getLastLog();
         //Then
-        Assert.assertEquals("Test", output);
+        Assert.assertEquals("SecondLog", output);
     }
 }
