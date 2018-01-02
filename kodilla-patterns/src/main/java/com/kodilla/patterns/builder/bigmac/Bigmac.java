@@ -1,6 +1,7 @@
 package com.kodilla.patterns.builder.bigmac;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Bigmac {
@@ -14,12 +15,17 @@ public class Bigmac {
         private int burgers;
         private String sauce;
         private List<String> ingredients = new ArrayList<>();
+        final private List<String> LIST_OF_AVAILABLE_ROLL = new ArrayList<>(Arrays.asList("With sesame seeds", "Without sesame seeds"));
+        final private List<String> LIST_OF_AVAILABLE_SAUCE = new ArrayList<>(Arrays.asList("Standard", "Barbecue", "1000 islands"));
+        final private List<String> LIST_OF_AVAILABLE_INGREDIENTS = new ArrayList<>(Arrays.asList("lettuce", "onion", "bacon", "cucumber", "chilli pepper", "mushrooms", "shrimp", "cheese"));
+
 
         public BigmacBuilder roll(String roll) {
-            if (roll == "With sesame seeds" || roll == "Without sesame seeds") {
+            if (LIST_OF_AVAILABLE_ROLL.contains(roll)) {
                 this.roll = roll;
             } else {
-                throw new IllegalStateException("You can choose only this types of roll: \n1. With sesame seeds \n2. Without sesame seeds");
+                LIST_OF_AVAILABLE_ROLL.forEach(System.out::println);
+                throw new IllegalStateException("You can choose only one of the above types, try again.");
             }
             return this;
         }
@@ -34,20 +40,22 @@ public class Bigmac {
         }
 
         public BigmacBuilder sauce(String sauce) {
-            if (sauce == "Standard" || sauce == "Barbecue" || sauce == "1000 islands") {
+            if (LIST_OF_AVAILABLE_SAUCE.contains(sauce)) {
                 this.sauce = sauce;
             } else {
-                throw new IllegalStateException("You can choose only one of this types of sauce: \n1. Standard\n2.Barbecue\n3.1000 islands");
-            }
+                LIST_OF_AVAILABLE_SAUCE.forEach(System.out::println);
+                throw new IllegalStateException("You can choose only one of the above types, try again.");
+                }
             return this;
 
         }
 
         public BigmacBuilder ingredient(String ingredient) {
-            if (ingredient == "lettuce" || ingredient == "onion" || ingredient == "bacon" || ingredient == "cucumber" || ingredient == "chilli pepper" || ingredient == "mushrooms" || ingredient == "shrimp" || ingredient == "cheese") {
+            if (LIST_OF_AVAILABLE_INGREDIENTS.contains(ingredient)) {
                 ingredients.add(ingredient);
             } else {
-                throw new IllegalStateException("You can't add this ingredient to your Bigmac");
+                LIST_OF_AVAILABLE_INGREDIENTS.forEach(System.out::println);
+                throw new IllegalStateException("You can choose only one of the above types, try again.");
             }
             return this;
         }
