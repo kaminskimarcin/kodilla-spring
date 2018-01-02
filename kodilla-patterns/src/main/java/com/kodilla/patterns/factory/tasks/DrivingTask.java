@@ -6,10 +6,23 @@ public class DrivingTask implements Task{
     private String using;
     private boolean isTaskExecuted = false;
 
-    public DrivingTask(String taskName, String where, String using) {
+    public DrivingTask() {
+    }
+
+    public void setTaskName(String taskName) {
         this.taskName = taskName;
+    }
+
+    public void setWhere(String where) {
         this.where = where;
+    }
+
+    public void setUsing(String using) {
         this.using = using;
+    }
+
+    public void setTaskExecuted(boolean taskExecuted) {
+        isTaskExecuted = taskExecuted;
     }
 
     @Override

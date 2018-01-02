@@ -6,10 +6,23 @@ public class ShoppingTask implements Task {
     private double quantity;
     private boolean isTaskExecuted = false;
 
-    public ShoppingTask(String taskName, String whatToBuy, double quantity) {
+    public ShoppingTask() {
+    }
+
+    public void setTaskName(String taskName) {
         this.taskName = taskName;
+    }
+
+    public void setWhatToBuy(String whatToBuy) {
         this.whatToBuy = whatToBuy;
+    }
+
+    public void setQuantity(double quantity) {
         this.quantity = quantity;
+    }
+
+    public void setTaskExecuted(boolean taskExecuted) {
+        isTaskExecuted = taskExecuted;
     }
 
     @Override
