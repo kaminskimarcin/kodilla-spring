@@ -13,12 +13,10 @@ public class Item {
     private int quantity;
     private BigDecimal value;
 
-    public Item(BigDecimal price, int quantity, BigDecimal value) {
-        this.id = id;
-        this.product = product;
+    public Item(BigDecimal price, int quantity) {
         this.price = price;
         this.quantity = quantity;
-        this.value = value;
+        this.value = getPrice().multiply(new BigDecimal(getQuantity()));
     }
 
     public Item() {
@@ -45,7 +43,7 @@ public class Item {
     @JoinColumn(name = "PRODUCT")
     public Product getProduct() {
         return product;
-    }g
+    }
 
     public void setProduct(Product product) {
         this.product = product;
