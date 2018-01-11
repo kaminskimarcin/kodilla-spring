@@ -17,14 +17,14 @@ import java.util.Date;
         ),
         @NamedQuery(
                 name = "Task.retrieveTasksWithDurationLongerThan",
-                query = "FROM Task Where duration > :DURATION"
+                query = "FROM Task WHERE duration > :DURATION"
         )
 })
 
 @NamedNativeQuery(
-        name = "task.retrieveTasksWithEnoughTime",
+        name = "Task.retrieveTasksWithEnoughTime",
         query = "SELECT * FROM TASKS" +
-                "WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
+                " WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
         resultClass = Task.class
 )
 @Entity

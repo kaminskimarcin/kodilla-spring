@@ -11,5 +11,5 @@ import java.util.List;
 @Transactional
 @Repository
 public interface InvoiceDao extends CrudRepository<Invoice, Integer> {
-    List<Item> readAllById(int Id);
+    Invoice findById(int id);
 }

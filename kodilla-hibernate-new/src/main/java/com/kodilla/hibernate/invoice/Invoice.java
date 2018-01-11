@@ -44,7 +44,7 @@ public class Invoice {
     @OneToMany(
             targetEntity = Item.class,
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.EAGER
     )
     @JoinColumn(name = "INVOICE_ID")
     public List<Item> getItems() {
