@@ -5,6 +5,12 @@ import javax.validation.constraints.NotNull;
 import java.lang.annotation.Native;
 import java.util.ArrayList;
 import java.util.List;
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesByThreeFirstLetters",
+        query = "SELECT * FROM COMPANIES" +
+                " WHERE COMPANY_NAME LIKE :FIRSTTHREELETTER",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
