@@ -11,6 +11,12 @@ import java.util.List;
                 " WHERE COMPANY_NAME LIKE :FIRSTTHREELETTER",
         resultClass = Company.class
 )
+
+@NamedQuery(
+        name = "Company.findCompanyByChars",
+        query = "FROM Company WHERE name LIKE :CHARACTERS"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
