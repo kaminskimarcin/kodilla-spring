@@ -1,3 +1,4 @@
 include 'kodilla-patterns'
 include 'kodilla-jdbc'
+include 'kodilla-testing2'
 
