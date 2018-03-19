@@ -28,4 +28,14 @@ public class Book {
     public String getSignature() {
         return signature;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "author='" + author + '\'' +
+                ", title='" + title + '\'' +
+                ", publicationYear=" + publicationYear +
+                ", signature='" + signature + '\'' +
+                '}';
+    }
 }

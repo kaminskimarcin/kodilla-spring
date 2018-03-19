@@ -10,4 +10,11 @@ public class BookSignature {
     public String getSignature() {
         return signature;
     }
+
+    @Override
+    public String toString() {
+        return "BookSignature{" +
+                "signature='" + signature + '\'' +
+                '}';
+    }
 }

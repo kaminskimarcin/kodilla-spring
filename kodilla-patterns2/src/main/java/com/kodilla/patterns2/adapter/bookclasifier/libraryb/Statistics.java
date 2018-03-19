@@ -6,28 +6,32 @@ import java.util.Map;
 public class Statistics implements BookStatistics {
     @Override
     public int averagePublicationYear(Map<BookSignature, Book> books) {
-        if (books.size() == 0) return 0;
-        int sum = 0;
-        for(Map.Entry<BookSignature, Book> entry : books.entrySet()) {
-            sum += entry.getValue().getYearOfPublication();
+        int average;
+        if (books.size() == 0) {
+            average = 0;
+        } else {
+            int sum = books.entrySet().stream()
+                    .mapToInt(k -> k.getValue().getYearOfPublication()).sum();
+            average = sum / books.size();
         }
-        return sum / books.size();
+        return average;
     }
 
     @Override
     public int medianPublicationYear(Map<BookSignature, Book> books) {
-       if (books.size() == 0) return 0;
-       int[] years = new int[books.size()];
-       int n = 0;
-       for(Map.Entry<BookSignature, Book> entry : books.entrySet()) {
-           years[n] = entry.getValue().getYearOfPublication();
-           n++;
-       }
-       Arrays.sort(years);
-       if (years.length % 2 == 0) {
-           return years[(int)(years.length / 2 + 0.5)];
-       } else {
-           return years[years.length / 2];
-       }
+        if (books.size() == 0) return 0;
+        int[] years = new int[books.size()];
+        int n = 0;
+        for (Map.Entry<BookSignature, Book> entry : books.entrySet()) {
+            years[n] = entry.getValue().getYearOfPublication();
+            n++;
+        }
+        Arrays.sort(years);
+
+        if (years.length % 2 == 0) {
+            return years[(int) (years.length / 2 + 0.5)];
+        } else {
+            return years[years.length / 2];
+        }
     }
 }

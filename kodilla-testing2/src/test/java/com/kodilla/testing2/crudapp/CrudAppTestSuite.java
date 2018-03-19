@@ -131,8 +131,6 @@ public class CrudAppTestSuite {
                 .collect(Collectors.toList())
                 .size() > 0;
 
-        driverTrello.quit();
-
         return result;
     }
 }
